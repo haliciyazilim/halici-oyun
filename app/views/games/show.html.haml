@@ -1,0 +1,37 @@
+
+%table
+  %tr
+    %td
+      Name: 
+    %td
+      = @game.name
+  %tr
+    %td
+      Version:
+    %td
+      = @game.version
+  %tr
+    %td
+      App ID:
+    %td
+      = @game.appId
+  %tr
+    %td
+      Description (TR):
+    %td
+      = @game.description_tr
+  %tr
+    %td
+      Description (EN):    
+    %td
+      = @game.description_en
+  %tr
+    %td
+      = link_to 'Edit', edit_game_path(@game)
+  %tr
+    %td
+      = button_to "Delete #{@game.name}", game_path(@game), :method => :delete, :confirm => 'Are you sure?'
+            
+%br
+
+= link_to 'All Games', games_path

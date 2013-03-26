@@ -1,0 +1,34 @@
+
+%h1 Add Game
+
+= form_for @game do |form|
+  
+  = form.label :name, 'Name:'
+  = form.text_field :name
+  %br
+  
+  = form.label :version, 'Version:'
+  = form.text_field :version
+  %br
+  
+  = form.label :appId, 'App ID: '
+  = form.text_field :appId
+  %br
+  
+  = form.label :description_tr, 'Description (TR): '
+  = form.text_area :description_tr
+  %br
+  
+  = form.label :description_en, 'Description (EN): '
+  = form.text_area :description_en
+  %br
+  
+  
+  Logo:
+  = form.file_field :logo
+  %br
+  Logo@2x:
+  = form.file_field :logo2x
+  %br
+  
+  = submit_tag "Update #{@game.name}"

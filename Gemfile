@@ -5,7 +5,26 @@ gem 'rails', '3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+gem 'haml'
+
+# For file storage
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'aws-s3'
+
+group :development, :test do
+  gem 'sqlite3'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec-rails'
+  gem 'simplecov'
+end
+
+group :production, :staging do
+  gem 'pg'
+end
 
 
 # Gems used only for assets and not required

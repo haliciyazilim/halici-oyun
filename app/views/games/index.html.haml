@@ -1,0 +1,54 @@
+
+- @games.each do |game|
+  %table
+    %tr
+      %td
+        Name: 
+      %td
+        = game.name
+    %tr
+      %td
+        Version:
+      %td
+        = game.version
+    %tr
+      %td
+        App ID:
+      %td
+        = game.appId
+    %tr
+      %td
+        Description (TR):
+      %td
+        = game.description_tr
+    %tr
+      %td
+        Description (EN):    
+      %td
+        = game.description_en
+    %tr
+      %td
+        = link_to 'Edit', edit_game_path(game)
+        
+    - if game.logo?
+      %tr
+        %td
+          Logo:
+        %td
+          = image_tag(game.logo.url)
+          
+    - if game.logo2x?
+      %tr
+        %td
+          Logo:
+        %td
+          = image_tag(game.logo2x.url)
+          
+    %tr
+      %td
+        = button_to "Delete #{game.name}", game_path(game), :method => :delete, :confirm => 'Are you sure?'
+
+          
+  %br
+
+= link_to 'Add Game', new_game_path
