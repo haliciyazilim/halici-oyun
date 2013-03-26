@@ -2,10 +2,63 @@
 class GamesController < ApplicationController
   def index
     @games = Game.all
+    
+    respond_to do |format|
+      format.html
+      format.json do
+        games = Game.all
+        games = games.map do |game|
+          hash = {
+            :id => game.id,
+            :name => game.name,
+            :version => game.version,
+            :description_tr => game.description_tr,
+            :description_en => game.description_en,
+            :appId => game.appId
+          }
+          
+          if game.logo?
+            hash[:logo] = game.logo.url
+          end
+          
+          if game.logo2x?
+            hash[:logo] = game.logo2x.url
+          end
+          
+          hash
+        end
+        
+        render :json => games
+      end
+    end
   end
   
   def show
     @game = Game.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json do
+        hash = {
+          :id => @game.id,
+          :name => @game.name,
+          :version => @game.version,
+          :description_tr => @game.description_tr,
+          :description_en => @game.description_en,
+          :appId => @game.appId
+        }
+        
+        if @game.logo?
+          hash[:logo] = @game.logo.url
+        end
+        
+        if @game.logo2x?
+          hash[:logo] = @game.logo2x.url
+        end
+        
+        render :json => hash
+      end
+    end
   end
   
   def new
