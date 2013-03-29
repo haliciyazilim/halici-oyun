@@ -1,20 +1,20 @@
 
 %h1
   Update
-  = @game.name
+  = @game.title
 
 = form_for @game do |form|
   
-  = form.label :name, 'Name:'
-  = form.text_field :name
+  = form.label :title, 'Title: '
+  = form.text_field :title
   %br
   
-  = form.label :version, 'Version:'
+  = form.label :version, 'Version: '
   = form.text_field :version
   %br
   
-  = form.label :appId, 'App ID: '
-  = form.text_field :appId
+  = form.label :app_name, 'App Name: '
+  = form.text_field :app_name
   %br
   
   = form.label :description_tr, 'Description (TR): '
@@ -35,6 +35,6 @@
   = form.file_field :logo4x
   %br  
   
-  = submit_tag "Update #{@game.name}"
+  = submit_tag "Update #{@game.title}"
   |
   = link_to 'Cancel', game_path(@game)

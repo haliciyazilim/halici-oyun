@@ -3,16 +3,16 @@
 
 = form_for Game.new do |form|
   
-  = form.label :name, 'Name:'
-  = form.text_field :name
+  = form.label :title, 'Title: '
+  = form.text_field :title
   %br
   
-  = form.label :version, 'Version:'
+  = form.label :version, 'Version: '
   = form.text_field :version
   %br
   
-  = form.label :appId, 'App ID: '
-  = form.text_field :appId
+  = form.label :app_name, 'App Name: '
+  = form.text_field :app_name
   %br
   
   = form.label :description_tr, 'Description (TR): '

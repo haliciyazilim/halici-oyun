@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  attr_accessible :logo1x, :logo2x, :logo4x, :name, :version, :appId, :description_tr, :description_en
+  attr_accessible :logo1x, :logo2x, :logo4x, :title, :version, :app_name, :description_tr, :description_en
 
   has_attached_file :logo1x,
                     :storage => ENV['S3_BUCKET'] ? :s3 : :filesystem,

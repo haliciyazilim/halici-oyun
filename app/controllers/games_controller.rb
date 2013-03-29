@@ -10,11 +10,11 @@ class GamesController < ApplicationController
         games = games.map do |game|
           hash = {
             :id => game.id,
-            :name => game.name,
+            :title => game.title,
             :version => game.version,
             :description_tr => game.description_tr,
             :description_en => game.description_en,
-            :appId => game.appId
+            :app_name => game.app_name
           }
           
           if game.logo1x?
@@ -45,11 +45,11 @@ class GamesController < ApplicationController
       format.json do
         hash = {
           :id => @game.id,
-          :name => @game.name,
+          :title => @game.title,
           :version => @game.version,
           :description_tr => @game.description_tr,
           :description_en => @game.description_en,
-          :appId => @game.appId
+          :app_name => @game.app_name
         }
         
         if @game.logo1x?
@@ -83,7 +83,7 @@ class GamesController < ApplicationController
   def destroy
     game = Game.find(params[:id])
     game.destroy
-    flash[:notice] = "#{game.name} was deleted successfully."
+    flash[:notice] = "#{game.title} was deleted successfully."
     redirect_to games_path
   end
   
@@ -94,7 +94,7 @@ class GamesController < ApplicationController
   def update
     game = Game.find params[:id]
     game.update_attributes!(params[:game])
-    flash[:notice] = "#{game.name} was successfully updated."
+    flash[:notice] = "#{game.title} was successfully updated."
     redirect_to games_path
   end
 end

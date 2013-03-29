@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130329145452) do
+ActiveRecord::Schema.define(:version => 20130329153200) do
 
   create_table "games", :force => true do |t|
-    t.string   "appId"
+    t.string   "app_name"
     t.text     "description_tr"
     t.text     "description_en"
-    t.string   "name"
+    t.string   "title"
     t.string   "version"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false

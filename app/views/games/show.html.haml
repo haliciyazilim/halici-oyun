@@ -2,9 +2,9 @@
 %table
   %tr
     %td
-      Name: 
+      Title: 
     %td
-      = @game.name
+      = @game.title
   %tr
     %td
       Version:
@@ -12,9 +12,9 @@
       = @game.version
   %tr
     %td
-      App ID:
+      App Name:
     %td
-      = @game.appId
+      = @game.app_name
   %tr
     %td
       Description (TR):
@@ -51,7 +51,7 @@
       = link_to 'Edit', edit_game_path(@game)
   %tr
     %td
-      = button_to "Delete #{@game.name}", game_path(@game), :method => :delete, :confirm => 'Are you sure?'
+      = button_to "Delete #{@game.title}", game_path(@game), :method => :delete, :confirm => 'Are you sure?'
             
 %br
 

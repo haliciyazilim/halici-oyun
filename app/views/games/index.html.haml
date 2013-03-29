@@ -2,11 +2,11 @@
 %table
   %tr
     %td
-      Name
+      Title
     %td
       Version
     %td
-      App ID
+      App Name
     %td
       Edit
     %td
@@ -15,15 +15,15 @@
   - @games.each do |game|
     %tr    
       %td
-        = link_to game.name, game_path(game)
+        = link_to game.title, game_path(game)
       %td
         = game.version
       %td
-        = game.appId       
+        = game.app_name       
       %td
         = link_to 'Edit', edit_game_path(game)
       %td
-        = button_to "Delete #{game.name}", game_path(game), :method => :delete, :confirm => 'Are you sure?'
+        = button_to "Delete #{game.title}", game_path(game), :method => :delete, :confirm => 'Are you sure?'
 
           
   %br
