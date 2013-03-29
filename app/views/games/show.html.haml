@@ -25,9 +25,6 @@
       Description (EN):    
     %td
       = @game.description_en
-  %tr
-    %td
-      = link_to 'Edit', edit_game_path(@game)
 
   - if @game.logo1x?
     %tr
@@ -42,7 +39,9 @@
         Logo@2x:
       %td
         = image_tag(@game.logo2x.url)
-
+  %tr
+    %td
+      = link_to 'Edit', edit_game_path(@game)
   %tr
     %td
       = button_to "Delete #{@game.name}", game_path(@game), :method => :delete, :confirm => 'Are you sure?'
