@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326164734) do
+ActiveRecord::Schema.define(:version => 20130329142132) do
 
   create_table "games", :force => true do |t|
     t.string   "appId"
@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(:version => 20130326164734) do
     t.string   "version"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
     t.string   "logo2x_file_name"
     t.string   "logo2x_content_type"
     t.integer  "logo2x_file_size"
     t.datetime "logo2x_updated_at"
+    t.string   "logo1x_file_name"
+    t.string   "logo1x_content_type"
+    t.integer  "logo1x_file_size"
+    t.datetime "logo1x_updated_at"
   end
 
 end

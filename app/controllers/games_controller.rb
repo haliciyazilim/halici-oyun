@@ -17,8 +17,8 @@ class GamesController < ApplicationController
             :appId => game.appId
           }
           
-          if game.logo?
-            hash[:logo] = game.logo.url
+          if game.logo1x?
+            hash[:logo1x] = game.logo1x.url
           end
           
           if game.logo2x?
@@ -48,8 +48,8 @@ class GamesController < ApplicationController
           :appId => @game.appId
         }
         
-        if @game.logo?
-          hash[:logo] = @game.logo.url
+        if @game.logo1x?
+          hash[:logo1x] = @game.logo1x.url
         end
         
         if @game.logo2x?

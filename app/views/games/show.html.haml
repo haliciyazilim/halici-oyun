@@ -29,12 +29,12 @@
     %td
       = link_to 'Edit', edit_game_path(@game)
 
-  - if @game.logo?
+  - if @game.logo1x?
     %tr
       %td
-        Logo:
+        Logo@1x:
       %td
-        = image_tag(@game.logo.url)
+        = image_tag(@game.logo1x.url)
 
   - if @game.logo2x?
     %tr
