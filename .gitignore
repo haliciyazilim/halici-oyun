@@ -17,3 +17,6 @@
 # Ignore local initializations
 /config/initializers/local/*
 
+# Ignore local storage
+/public/system
+
