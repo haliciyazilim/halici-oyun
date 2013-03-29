@@ -1,17 +1,18 @@
 
-- @games.each do |game|
-  %table
-    %tr
-      %td
-        Name
-      %td
-        Version
-      %td
-        App ID
-      %td
-        Edit
-      %td
-        Delete
+%table
+  %tr
+    %td
+      Name
+    %td
+      Version
+    %td
+      App ID
+    %td
+      Edit
+    %td
+      Delete
+      
+  - @games.each do |game|
     %tr    
       %td
         = link_to game.name, game_path(game)
