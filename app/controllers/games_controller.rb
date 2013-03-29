@@ -25,6 +25,10 @@ class GamesController < ApplicationController
             hash[:logo2x] = game.logo2x.url
           end
           
+          if game.logo4x?
+            hash[:logo4x] = game.logo4x.url
+          end
+          
           hash
         end
         
@@ -54,6 +58,10 @@ class GamesController < ApplicationController
         
         if @game.logo2x?
           hash[:logo2x] = @game.logo2x.url
+        end
+        
+        if @game.logo4x?
+          hash[:logo4x] = @game.logo4x.url
         end
         
         render :json => hash
