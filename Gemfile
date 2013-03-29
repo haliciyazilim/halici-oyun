@@ -8,9 +8,7 @@ gem 'rails', '3.2.1'
 gem 'haml'
 
 # For file storage
-gem 'paperclip'
-gem 'aws-sdk'
-gem 'aws-s3'
+gem 'paperclip-aws'
 
 group :development, :test do
   gem 'sqlite3'
