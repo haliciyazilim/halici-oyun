@@ -6,7 +6,7 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        games = Game.all
+        games = Game.where('app_name != ?', params[:for_app_name])
         games = games.map do |game|
           hash = {
             :id => game.id,
