@@ -13,6 +13,11 @@ class GamesController < ApplicationController
           games = Game.all
         end
         
+        if (params[:lang])
+          lang = params[:lang].downcase
+        end
+        
+        
         games = games.map do |game|
           hash = {
             :id => game.id,
@@ -23,19 +28,19 @@ class GamesController < ApplicationController
             :app_name => game.app_name
           }
           
-          if params[:lang] == 'TR' and game.logo1x_tr?
+          if lang == 'tr' and game.logo1x_tr?
             hash[:logo1x] = game.logo1x_tr.url
           elsif game.logo1x?
             hash[:logo1x] = game.logo1x.url
           end
           
-          if params[:lang] == 'TR' and game.logo2x_tr?
+          if lang == 'tr' and game.logo2x_tr?
             hash[:logo2x] = game.logo2x_tr.url
           elsif game.logo2x?
             hash[:logo2x] = game.logo2x.url
           end
           
-          if params[:lang] == 'TR' and game.logo4x_tr?
+          if lang == 'tr' and game.logo4x_tr?
             hash[:logo4x] = game.logo4x_tr.url
           elsif game.logo4x?
             hash[:logo4x] = game.logo4x.url
@@ -55,6 +60,11 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
+        if (params[:lang])
+          lang = params[:lang].downcase
+        end
+        
+        
         hash = {
           :id => @game.id,
           :title => @game.title,
@@ -64,19 +74,19 @@ class GamesController < ApplicationController
           :app_name => @game.app_name
         }
         
-        if params[:lang] == 'TR' and @game.logo1x_tr?
+        if lang == 'tr' and @game.logo1x_tr?
           hash[:logo1x] = @game.logo1x_tr.url
         elsif @game.logo1x?
           hash[:logo1x] = @game.logo1x.url
         end
         
-        if params[:lang] == 'TR' and @game.logo2x_tr?
+        if lang == 'tr' and @game.logo2x_tr?
           hash[:logo2x] = @game.logo2x_tr.url
         elsif @game.logo2x?
           hash[:logo2x] = @game.logo2x.url
         end
         
-        if params[:lang] == 'TR' and @game.logo4x_tr?
+        if lang == 'tr' and @game.logo4x_tr?
           hash[:logo4x] = @game.logo4x_tr.url
         elsif @game.logo4x?
           hash[:logo4x] = @game.logo4x.url
