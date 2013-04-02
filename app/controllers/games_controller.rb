@@ -23,15 +23,21 @@ class GamesController < ApplicationController
             :app_name => game.app_name
           }
           
-          if game.logo1x?
+          if params[:lang] == 'TR' and game.logo1x_tr?
+            hash[:logo1x] = game.logo1x_tr.url
+          elsif game.logo1x?
             hash[:logo1x] = game.logo1x.url
           end
           
-          if game.logo2x?
+          if params[:lang] == 'TR' and game.logo2x_tr?
+            hash[:logo2x] = game.logo2x_tr.url
+          elsif game.logo2x?
             hash[:logo2x] = game.logo2x.url
           end
           
-          if game.logo4x?
+          if params[:lang] == 'TR' and game.logo4x_tr?
+            hash[:logo4x] = game.logo4x_tr.url
+          elsif game.logo4x?
             hash[:logo4x] = game.logo4x.url
           end
           
@@ -58,15 +64,21 @@ class GamesController < ApplicationController
           :app_name => @game.app_name
         }
         
-        if @game.logo1x?
+        if params[:lang] == 'TR' and @game.logo1x_tr?
+          hash[:logo1x] = @game.logo1x_tr.url
+        elsif @game.logo1x?
           hash[:logo1x] = @game.logo1x.url
         end
         
-        if @game.logo2x?
+        if params[:lang] == 'TR' and @game.logo2x_tr?
+          hash[:logo2x] = @game.logo2x_tr.url
+        elsif @game.logo2x?
           hash[:logo2x] = @game.logo2x.url
         end
         
-        if @game.logo4x?
+        if params[:lang] == 'TR' and @game.logo4x_tr?
+          hash[:logo4x] = @game.logo4x_tr.url
+        elsif @game.logo4x?
           hash[:logo4x] = @game.logo4x.url
         end
         
