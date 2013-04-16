@@ -189,6 +189,7 @@ DEPENDENCIES
   pg
   rails (= 3.2.1)
   rspec-rails
+  sass
   sass-rails (~> 3.2.3)
   simplecov
   sqlite3
