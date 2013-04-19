@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416112930) do
+ActiveRecord::Schema.define(:version => 20130419151202) do
+
+  create_table "dim_matches", :force => true do |t|
+    t.string   "match_id"
+    t.string   "winner_id"
+    t.string   "loser_id"
+    t.integer  "winner_score"
+    t.integer  "loser_score"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "dim_matches", ["loser_id"], :name => "index_dim_matches_on_loser_id"
+  add_index "dim_matches", ["match_id"], :name => "index_dim_matches_on_match_id", :unique => true
+  add_index "dim_matches", ["winner_id"], :name => "index_dim_matches_on_winner_id"
 
   create_table "dim_users", :force => true do |t|
     t.string   "gc_id"
