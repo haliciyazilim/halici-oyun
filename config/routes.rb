@@ -11,6 +11,7 @@ Brainquire::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
   match 'dim/group_for_score' => 'dim#group_for_score'
   match 'dim/end_match' => 'dim#end_match'
+  match 'dim/get_user' => 'dim#get_user'
     
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
