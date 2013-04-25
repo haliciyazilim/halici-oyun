@@ -16,9 +16,9 @@ class DimController < ApplicationController
           render :json => {:error => true, :error_message => @error_text}
         else
           render :json => {
-            :gc_id => dim_user.gc_id,
-            :score => dim_user.score,
-            :group => dim_user.group
+            :gc_id => @dim_user.gc_id,
+            :score => @dim_user.score,
+            :group => @dim_user.group
           }
         end
       end
