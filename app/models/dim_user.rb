@@ -15,25 +15,30 @@ class DimUser < ActiveRecord::Base
     return dim_user
   end
   
+  def reset_progress
+    self.score = 1500
+    self.save!
+  end
+  
   def group
     return ((self.score - 50) / 100) + 10
   end
   
-  def calculate_score (difference)
-    return (10*Math.exp(difference/300.0)).ceil
-  end
-  
-  def update_score_by_match (match)
-    score_difference = calculate_score(match.loser_score - match.winner_score)
-    
-    if match.loser_id == self.gc_id
-      score_difference = -score_difference
-    elsif match.winner_id != self.gc_id
-      score_difference = 0
-    end
-
-    self.score = self.score + score_difference
-    self.save!
-    return score_difference
-  end
+  # def calculate_score (difference)
+  #   return (10*Math.exp(difference/300.0)).ceil
+  # end
+  # 
+  # def update_score_by_match (match)
+  #   score_difference = calculate_score(match.loser_score - match.winner_score)
+  #   
+  #   if match.loser_id == self.gc_id
+  #     score_difference = -score_difference
+  #   elsif match.winner_id != self.gc_id
+  #     score_difference = 0
+  #   end
+  # 
+  #   self.score = self.score + score_difference
+  #   self.save!
+  #   return score_difference
+  # end
 end
