@@ -51,8 +51,8 @@ class DimController < ApplicationController
         loser_id = params[:gc_id]
       end
     
-      winner_score = DimUser.find_by_gc_id(winner_id).score
-      loser_score = DimUser.find_by_gc_id(loser_id).score
+      winner_score = DimUser.get_user_by_gc_id(winner_id).score
+      loser_score = DimUser.get_user_by_gc_id(loser_id).score
       
       begin
         @match = DimMatch.create({
