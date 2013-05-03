@@ -12,7 +12,8 @@ Brainquire::Application.routes.draw do
   match 'dim/group_for_score' => 'dim#group_for_score'
   match 'dim/end_match' => 'dim#end_match'
   match 'dim/get_user' => 'dim#get_user'
-    
+  match 'dim/reset_progress' => 'dim#reset_progress'
+      
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :games
