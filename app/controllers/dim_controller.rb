@@ -89,7 +89,7 @@ class DimController < ApplicationController
     
     if (!@error)
       @dim_user = DimUser.get_user_by_gc_id(params[:gc_id])
-      if (params[:match_won] == "true")
+      if (params[:match_won].to_bool)
         winner_id = params[:gc_id]
         loser_id = params[:other_id]
       else
