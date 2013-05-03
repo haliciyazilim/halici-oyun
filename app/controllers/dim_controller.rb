@@ -121,6 +121,10 @@ class DimController < ApplicationController
     
     if (!@error)
       @score_difference = @match.score_difference
+
+      if @score_difference = nil
+        @score_difference = 0
+      end
        
       if (params[:gc_id] == @match.loser_id)
         @score_difference = -@score_difference
