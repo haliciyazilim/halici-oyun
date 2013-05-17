@@ -21,7 +21,8 @@ class DimUser < ActiveRecord::Base
   end
   
   def group
-    return ((self.score - 50) / 100) + 10
+    # return ((self.score - 50) / 100) + 10
+    return 24
   end
   
   # def calculate_score (difference)
