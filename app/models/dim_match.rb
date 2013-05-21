@@ -6,7 +6,7 @@ class DimMatch < ActiveRecord::Base
   
   def calculate_score (difference)
     # return (10*Math.exp(difference/500.0)).ceil
-    return (80/(1+Math.exp(-((difference-975.0)/500)))).ceil
+    return (80/(1+Math.exp(-((difference-590.0)/300)))).ceil
   end
   
   def execute
