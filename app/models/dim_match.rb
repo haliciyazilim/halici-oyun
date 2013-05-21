@@ -5,7 +5,8 @@ class DimMatch < ActiveRecord::Base
   attr_accessible :match_id, :winner_id, :loser_id, :winner_score, :loser_score, :score_difference
   
   def calculate_score (difference)
-    return (10*Math.exp(difference/300.0)).ceil
+    # return (10*Math.exp(difference/500.0)).ceil
+    return (80/(1+Math.exp(-((difference-975.0)/500)))).ceil
   end
   
   def execute
