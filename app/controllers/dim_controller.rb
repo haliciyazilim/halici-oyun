@@ -75,9 +75,9 @@ class DimController < ApplicationController
     elsif !params[:other_id]
       @error = true
       @error_text = "You need to supply the other player's id by other_id"
-    elsif !params[:match_won]
+    elsif !params[:match_result]
       @error = true
-      @error_text = "You need to supply the match result by match_won (true means the player with gc_id won)."
+      @error_text = "You need to supply the match result by match_result (for the player with gc_id: 1000 means declined, 1001 means won, 1002 means lost)."
     else
       digest = params[:match_id] + 'AG($IAFKEAA)F#J' + params[:gc_id] + params[:other_id]
       if params[:dg] != Digest::SHA1.hexdigest(digest)
@@ -89,10 +89,10 @@ class DimController < ApplicationController
     
     if (!@error)
       @dim_user = DimUser.get_user_by_gc_id(params[:gc_id])
-      if (params[:match_won].to_bool)
+      if (params[:match_result].to_i == 1001)
         winner_id = params[:gc_id]
         loser_id = params[:other_id]
-      else
+      else 
         winner_id = params[:other_id]
         loser_id = params[:gc_id]
       end
@@ -109,7 +109,11 @@ class DimController < ApplicationController
           :loser_score => loser_score
         })
         
-        @match.execute
+        if params[:match_result].to_i == 1000
+          @match.execute_declined
+        else
+          @match.execute
+        end
       rescue ActiveRecord::StatementInvalid => exc
         @match = DimMatch.find_by_match_id(params[:match_id])
         if (@match == nil)

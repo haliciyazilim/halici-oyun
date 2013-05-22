@@ -22,4 +22,9 @@ class DimMatch < ActiveRecord::Base
     winner.save!
     loser.save!
   end
+  
+  def execute_declined
+    self.score_difference = 0
+    self.save!
+  end
 end
