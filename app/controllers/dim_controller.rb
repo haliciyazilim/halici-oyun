@@ -145,6 +145,7 @@ class DimController < ApplicationController
             :gc_id => @dim_user.gc_id,
             :score => @dim_user.score,
             :group => @dim_user.group,
+            :win_count => @dim_user.win_count,
             :score_difference => @score_difference
           }
         end

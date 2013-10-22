@@ -19,6 +19,8 @@ class DimMatch < ActiveRecord::Base
     winner.score += self.score_difference
     loser.score -= self.score_difference
     
+    winner.win_count = winner.win_count + 1
+
     winner.save!
     loser.save!
   end

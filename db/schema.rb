@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502184445) do
+ActiveRecord::Schema.define(:version => 20131022135955) do
 
   create_table "dim_matches", :force => true do |t|
     t.string   "match_id"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(:version => 20130502184445) do
   create_table "dim_users", :force => true do |t|
     t.string   "gc_id"
     t.integer  "score"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "win_count",  :default => 0
   end
 
   add_index "dim_users", ["gc_id"], :name => "index_dim_users_on_gc_id"
